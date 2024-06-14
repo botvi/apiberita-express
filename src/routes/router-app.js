@@ -24,6 +24,8 @@ router.delete('/users/:userId', jwtAuth.verifyToken, userController.deleteUser);
 
 //router.get('/news', jwtAuth.verifyToken, newsController.getAllNews); // Perubahan disini
 router.get('/news', newsController.getAllNews);
+router.get('/news/:id', newsController.getNewsById);
+
 
 router.post('/news', jwtAuth.verifyToken, newsController.addNews);
 router.put('/news/:id', jwtAuth.verifyToken, newsController.updateNews);
