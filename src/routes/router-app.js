@@ -28,13 +28,13 @@ router.get('/news', newsController.getAllNews);
 router.post('/news', jwtAuth.verifyToken, newsController.addNews);
 router.put('/news/:id', jwtAuth.verifyToken, newsController.updateNews);
 router.delete('/news/:id', jwtAuth.verifyToken, newsController.deleteNews);
-router.get('/news/category/:id_category', jwtAuth.verifyToken, newsController.getNewsByCategory); // Perubahan disini
+router.get('/news/category/:id_category',newsController.getNewsByCategory); // Perubahan disini
 
 
 router.get('/categories', categoryController.getAllCategories);
 router.post('/categories',jwtAuth.verifyToken, categoryController.addCategory);
 router.put('/categories/:id', jwtAuth.verifyToken,categoryController.updateCategory);  // Tambahkan ini untuk memperbarui kategori
-router.delete('/categories/:id',categoryController.deleteCategory);  // Tambahkan ini untuk menghapus kategori
+router.delete('/categories/:id', jwtAuth.verifyToken,categoryController.deleteCategory);  // Tambahkan ini untuk menghapus kategori
 
 router.get('/favorites', jwtAuth.verifyToken, favoriteController.getAllFavorites);
 router.put('/favorites/:favoriteId', jwtAuth.verifyToken, favoriteController.updateFavorite);
