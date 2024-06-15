@@ -102,7 +102,7 @@ async function signin(req, res) {
         }
 
         // Cari pengguna berdasarkan email
-        const results = await runQuery('SELECT * FROM tbl_users WHERE email = ?', [email.trim()]);
+        const results = await runQuery('SELECT id_user, email, username, password, role FROM tbl_users WHERE email = ?', [email.trim()]);
 
         // Pastikan bahwa pengguna ditemukan dalam database
         if (!results || results.length === 0) {
@@ -146,8 +146,8 @@ async function signin(req, res) {
                 loginMessage = 'Signin berhasil';
         }
 
-        // Kirim respons dengan token dan pesan khusus berdasarkan peran
-        res.json({ message: loginMessage, token });
+        // Kirim respons dengan token, username, role, dan pesan khusus berdasarkan peran
+        res.json({ message: loginMessage, token, username: user.username, role: user.role });
     } catch (error) {
         console.error('Error:', error);
         res.status(500).json({ message: 'Terjadi kesalahan saat melakukan otentikasi' });
