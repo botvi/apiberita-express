@@ -1,10 +1,10 @@
 //database.js
 const mysql = require('mysql');
 const db = mysql.createPool({
-  host: 'btekbezsmyyodrop3iq7-mysql.services.clever-cloud.com',
-  user: 'uiseqsctqibwyp2w',
-  password: 'HrVYUYhcY5VPIqGR1c58',
-  database: 'btekbezsmyyodrop3iq7'
+  host: 'bnlq5mgcgfkocuinoy8h-mysql.services.clever-cloud.com',
+  user: 'uel1kswlffjpwlrk',
+  password: 'TfeZeNf7SBPgw0jCw9XD',
+  database: 'bnlq5mgcgfkocuinoy8h'
 });
 
 module.exports = db;
