@@ -147,7 +147,7 @@ async function signin(req, res) {
         }
 
         // Kirim respons dengan token, username, role, dan pesan khusus berdasarkan peran
-        res.json({ message: loginMessage, token, username: user.username, role: user.role });
+        res.json({ message: loginMessage, token, username: user.username, role: user.role, id: user.id_user });
     } catch (error) {
         console.error('Error:', error);
         res.status(500).json({ message: 'Terjadi kesalahan saat melakukan otentikasi' });
