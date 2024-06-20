@@ -10,7 +10,7 @@ const newsController = require('../controllers/newsController');
 const favoriteController = require('../controllers/favoriteController');
 const commentController = require('../controllers/commentController');
 const categoryController = require('../controllers/categoryController');
-const { uploadFile } = require('../controllers/controller-upload');
+const uploadController = require('../controllers/controller-upload');
 const gantiPasswordController = require('../controllers/gantiPasswordController'); // Sesuaikan path dan nama file dengan struktur direktori Anda
 
 
@@ -47,10 +47,11 @@ router.get('/comments/:newsId', commentController.getCommentsByNewsId);
 router.post('/comments/add', jwtAuth.verifyToken, commentController.addComment); 
 router.delete('/comments/:id', jwtAuth.verifyToken, commentController.deleteComment); 
 
-router.get('/files', jwtAuth.verifyToken, uploadFile);
-router.post('/upload', jwtAuth.verifyToken, uploadFile);
-router.put('/files/:fileName', jwtAuth.verifyToken, uploadFile);
-router.delete('/files/:fileName', jwtAuth.verifyToken,uploadFile);
+router.get('/uploadFile', uploadController.getFiles);
+router.get('/uploadFile/:fileName', uploadController.getFileByName);
+router.post('/upload', jwtAuth.verifyToken, uploadController.uploadFile);
+router.put('/files/:fileName', jwtAuth.verifyToken, uploadController.updateFile);
+router.delete('/files/:fileName', jwtAuth.verifyToken, uploadController.deleteFile);
 
 router.put('/change-password', jwtAuth.verifyToken, gantiPasswordController.changePassword);
 
