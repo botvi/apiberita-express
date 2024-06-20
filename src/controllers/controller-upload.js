@@ -58,7 +58,7 @@ exports.uploadFile = (req, res) => {
         }
 
         // Konstruksi URL file yang diunggah
-        const fileUrl = `${baseUrl}/images/${randomName}${fileExtension}`; // Gunakan base URL dari variabel lingkungan
+        const fileUrl = `${randomName}${fileExtension}`; // Gunakan base URL dari variabel lingkungan
 
         res.send(`File berhasil diunggah! URL: ${fileUrl}`);
     });
